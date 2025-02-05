@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="login-container">
-        <h2>Login</h2>
+        <h2>Logine</h2>
 
 
         <?php if (isset($_SESSION['error'])): ?>
