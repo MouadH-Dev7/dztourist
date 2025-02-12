@@ -1,0 +1,628 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Style du menu */
+.navbar {
+    background-color: #333; /* Gris foncé */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #f4a261; /* Orange clair au survol */
+}
+
+/* Espace pour voir le menu fixé */
+.content {
+    padding-top: 80px;
+    text-align: center;
+}
+li img{
+    width: 100%;
+    height: 100%;
+}
+#imgcc{
+     display: flex;
+     align-items: center;
+     white-space: nowrap;
+         background-color: black;
+    width: 7vh;
+    height:7vh;
+    border-radius: 100%;
+    font-size: larger;
+    gap: 10px;
+}
+#imgcc img {
+    width: 100%;
+}
+
+.stars {
+    display: flex;
+    font-size: 40px;
+    cursor: pointer;
+    color: #ccc; /* Étoiles grises par défaut */
+}
+
+.star {
+    transition: color 0.3s;
+}
+
+/* Effet de survol progressif */
+.star:hover ~ .star {
+    color: #ccc; /* Les étoiles après restent grises */
+}
+
+.star:hover,
+.star:hover ~ .star.previous {
+    color: gold; /* Étoiles avant et actuelle deviennent dorées */
+}
+
+/* Étoiles sélectionnées */
+.star.selected {
+    color: gold;
+}
+
+
+.icons {
+    display: flex;
+    font-size: 40px;
+    gap: 80px;
+}
+
+.icon {
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+.liked {
+    color: red;
+    
+}
+
+.saved {
+    color: gold;
+margin-left: 250px;    
+}
+.publication1{
+    margin-left: 30px;
+    margin-top: 30vh;
+}
+.publication2{
+    margin-left: 30px;
+}#imgcc2{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+        background-color: black;
+   width: 7vh;
+   height:7vh;
+   border-radius: 100%;
+   font-size: larger;
+   gap: 10px;
+}
+#imgcc2 img {
+   width: 100%;
+}
+#containerpub{
+    background-color: black;
+    width: 36%;
+    height:550px;
+}
+#containerpub img{
+    width: 100%;
+    height: 100%;
+}
+.publication3{
+    margin-left: 30px;
+}#imgcc3{
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+        background-color: black;
+   width: 7vh;
+   height:7vh;
+   border-radius:100%;
+   font-size: larger;
+   gap: 10px;
+}
+#imgcc3 img {
+   width: 100%;
+}
+.fildactu{
+   position: absolute;
+   top: 330vh;
+   justify-content: space-between;
+display: flex;
+flex-direction: column;
+gap: 10vh;
+ }
+   
+     h1{
+        position: absolute;
+        top: 35vh;
+      left: 160px;
+        font-size: 50px;
+        color: white;
+     }
+      
+
+     .search-container {
+        position: absolute;
+        top:72vh;
+        right: 57vh;
+        width: 100vh;
+    }
+    .search-container input {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 25px;
+        outline: none;
+        font-size: 16px;
+    }
+    .search-container button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    .search-wrapper:focus-within {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+   
+   
+    .container {
+    position: absolute;
+        top: 200vh;
+    
+        left: 0%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        background: #f5f5f5;
+        box-shadow: 0 30px 50px #dbdbdb;
+    }
+
+    .container .slide .item {
+        width: 200px;
+        height: 300px;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        border-radius: 20px;
+        box-shadow: 0 30px 50px #505050;
+        background-position: center;
+        background-size: cover;
+        display: inline-block;
+        transition: 0.5s;
+    }
+
+    .slide .item:nth-child(1),
+    .slide .item:nth-child(2) {
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide .item:nth-child(3) {
+        left: 50%;
+    }
+
+    .slide .item:nth-child(4) {
+        left: calc(50% + 220px);
+    }
+
+    .slide .item:nth-child(n + 5) {
+        left: calc(50% + 440px);
+        opacity: 0;
+    }
+
+    .item .content {
+        position: absolute;
+        top: 50%;
+        left: 100px;
+        width: 300px;
+        text-align: left;
+        color: #eee;
+        transform: translate(0, -50%);
+        display: none;
+    }
+
+    .slide .item:nth-child(2) .content {
+        display: block;
+    }
+
+    .content .name {
+        font-size: 40px;
+        text-transform: uppercase;
+        font-weight: bold;
+        opacity: 0;
+        animation: animate 1s ease-in-out 1 forwards;
+    }
+
+    .content .des {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: animate 1s ease-in-out 0.3s 1 forwards;
+    }
+
+    .content button {
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        opacity: 0;
+        animation: animate 1s ease-in-out 0.6s 1 forwards;
+    }
+
+    @keyframes animate {
+        from {
+            opacity: 0;
+            transform: translate(0, 100px);
+            filter: blur(33px);
+        }
+        to {
+            opacity: 1;
+            transform: translate(0);
+            filter: blur(0);
+        }
+    }
+
+    .button {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        bottom: 20px;
+    }
+
+    .button button {
+        width: 40px;
+        height: 35px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        margin: 0 5px;
+        border: 1px solid #000;
+        transition: 0.3s;
+        background: #fff;
+    }
+
+    .button button:hover {
+        background: #ababab;
+        color: #fff;
+    }
+
+    .prev::before {
+        content: "◀"; /* Ajoute une flèche */
+        font-size: 20px;
+    }
+
+    .next::before {
+        content: "▶"; /* Ajoute une flèche */
+        font-size: 20px;
+    }
+    /* From Uiverse.io by SteveBloX */ 
+.card {
+    box-sizing: border-box;
+    width: 40vh;
+    height: 45vh;
+    background: rgba(217, 217, 217, 0.58);
+    border: 1px solid white;
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-weight: bolder;
+    color: black;
+    overflow: hidden;
+overflow-y: scroll;  }
+  
+  .card:hover {
+    border: 1px solid black;
+    transform: scale(1.05);
+  }
+  
+  .card:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+  }
+  .card2 {
+    box-sizing: border-box;
+    width: 40vh;
+    height: 45vh;
+    background: rgba(217, 217, 217, 0.58);
+    border: 1px solid white;
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-weight: bolder;
+    color: black;
+    overflow: hidden;
+overflow-y: scroll;  }
+  
+  .card2:hover {
+    border: 1px solid black;
+    transform: scale(1.05);
+  }
+  
+  .card2:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+  }
+  
+
+  
+  .card4 {
+    box-sizing: border-box;
+    width: 40vh;
+    height: 45vh;
+    background: rgba(217, 217, 217, 0.58);
+    border: 1px solid white;
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-weight: bolder;
+    color: black;
+    overflow: hidden;
+overflow-y: scroll;  }
+  
+  .card4:hover {
+    border: 1px solid black;
+    transform: scale(1.05);
+  }
+  
+  .card4:active{
+    transform: scale(0.95) rotateZ(1.7deg);
+  }
+  .category{
+    display: flex;
+
+  }
+  .card3 {
+    box-sizing: border-box;
+    width: 40vh;
+    height: 45vh;
+    background: rgba(217, 217, 217, 0.58);
+    border: 1px solid white;
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-weight: bolder;
+    color: black;
+    overflow: hidden;
+overflow-y: scroll;  }
+  
+  .card3:hover {
+    border: 1px solid black;
+    transform: scale(1.05);
+  }
+  
+  .card3:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+  }
+  .category{
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    row-gap: 20px;
+    margin-left: 2%;
+margin-top: 12%;
+
+;}
+.category p{
+    margin-left: 10%;
+    font-weight: bold;
+    font-size: larger;
+}
+.menu {
+    background: #333;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200vh;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.title {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Boutons à droite */
+.menu-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.menu-btn {
+    color: white;
+    background: #ff6600;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Conteneur de la carte */
+.map-container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 50%;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Bouton de fermeture */
+#close-map {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+/* Classe pour afficher la carte */
+.map-container.open {
+    right: 0;
+}
+.userpublication{
+  display: flex;
+  flex-direction: column;
+  gap: 120px; /* Ajoute un espacement fixe entre chaque élément */
+margin-top: -10%;}
+/* Style général du footer */
+.footer {
+    background: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    bottom: 0;
+}
+
+/* Conteneur principal */
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Sections du footer */
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 250px;
+}
+
+/* Titres des sections */
+.footer-section h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* Liens */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Icônes réseaux sociaux */
+.social-icons a {
+    display: block;
+    margin: 5px 0;
+    color: white;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    text-decoration: underline;
+}
+
+/* Bas du footer */
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid #555;
+    padding-top: 10px;
+}

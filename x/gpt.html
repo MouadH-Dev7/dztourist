@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fil d'actualité</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Barre de menu -->
+    <nav class="menu">
+        <span class="title">Fil d'actualité</span>
+        <div class="menu-buttons">
+            <button class="menu-btn">Accueil</button>
+            <button class="menu-btn">Notifications</button>
+            <button id="toggle-map" class="menu-btn">Map</button>
+        </div>
+    </nav>
+
+    <!-- Conteneur de la carte -->
+    <div id="map-container" class="map-container">
+        <button id="close-map">Fermer</button>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29274632.54720231!2d-19.884166934157857!3d26.405284871466637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7e8a6a28037bd1%3A0x7140bee3abd7f8a2!2zQWxnw6lyaWU!5e0!3m2!1sfr!2sdz!4v1739164039484!5m2!1sfr!2sdz" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
+
+    <script src="script.js"></script>
+
+<style>
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Barre "Fil d'actualité" */
+.menu {
+    background: #333;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.title {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Boutons à droite */
+.menu-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.menu-btn {
+    color: white;
+    background: #ff6600;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Conteneur de la carte */
+.map-container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 50%;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Bouton de fermeture */
+#close-map {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+/* Classe pour afficher la carte */
+.map-container.open {
+    right: 0;
+}
+</style>
+
+<script>
+// Gestion de l'affichage de la carte
+document.addEventListener("DOMContentLoaded", function () {
+    const mapContainer = document.getElementById("map-container");
+    const openMapBtn = document.getElementById("toggle-map");
+    const closeMapBtn = document.getElementById("close-map");
+
+    openMapBtn.addEventListener("click", function () {
+        mapContainer.classList.add("open");
+    });
+
+    closeMapBtn.addEventListener("click", function () {
+        mapContainer.classList.remove("open");
+    });
+});
+</script>
+
+</body>
+</html>
+
+  
